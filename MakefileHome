@@ -1,0 +1,54 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mverdier <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/10/09 13:44:17 by mverdier          #+#    #+#              #
+#    Updated: 2017/10/09 14:33:37 by mverdier         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#------------------------------------------------------------------------------#
+# Primary rules
+
+all: libft checker push_swap
+
+libft:
+	@$(MAKE) -C ./libft/
+
+checker:
+	@$(MAKE) -C ./Checker/
+
+push_swap:
+	@$(MAKE) -C ./Push_swap/
+
+clean:
+	@$(MAKE) -C ./Checker/ clean
+	@$(MAKE) -C ./Push_swap/ clean
+
+fclean:
+	@$(MAKE) -C ./Checker/ fclean
+	@$(MAKE) -C ./Push_swap/ fclean
+
+re: fclean
+	@$(MAKE) all
+
+#------------------------------------------------------------------------------#
+# List of all my optionnals but usefull rules.
+
+no:
+	@$(MAKE) -C ./libft/ no
+	@$(MAKE) -C ./Checker/ no
+	@$(MAKE) -C ./Push_swap/ no
+
+check: no
+
+
+git:	# A rule to make git add easier
+	@$(MAKE) -C ./libft/ git
+	@$(MAKE) -C ./Checker/ git
+	@$(MAKE) -C ./Push_swap/ git
+
+.PHONY: all clean re fclean git no printf check
