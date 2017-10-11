@@ -6,7 +6,7 @@
 #    By: mverdier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/09 13:44:17 by mverdier          #+#    #+#              #
-#    Updated: 2017/10/10 14:15:02 by mverdier         ###   ########.fr        #
+#    Updated: 2017/10/11 13:03:16 by mverdier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,6 @@ NAME =
 SRCDIR =	./srcs
 
 INCDIR =	./includes
-
-OBJDIR =	./objs
 
 SRC =		
 
@@ -128,7 +126,7 @@ git:	# A rule to make git add easier
 	@$(MAKE) printname
 	@echo Adding files to git repository
 	@printf "$(GREEN)"
-	git add $(SRCS) $(INCS) Makefile auteur
+	git add $(SRCS) $(INCS) Makefile
 	@printf "$(RES)"
 
 .PHONY: all clean re fclean git no check
