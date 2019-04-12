@@ -6,7 +6,7 @@
 #    By: mverdier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/09 13:44:17 by mverdier          #+#    #+#              #
-#    Updated: 2017/10/11 13:03:16 by mverdier         ###   ########.fr        #
+#    Updated: 2019/04/12 12:34:42 by mverdier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,20 +108,6 @@ re: fclean
 #------------------------------------------------------------------------------#
 # List of all my optionnals but usefull rules.
 
-NORM = `norminette $(SRCS) $(INCS) | grep -B1 Error | cat`
-
-no:
-	@$(MAKE) printname
-	@echo "Passage de la norminette :"
-	@if [ "$(NORM)" == "`echo ""`" ];									\
-		then															\
-			echo "$(GREEN)Tous les fichiers sont a la norme !$(RES)";	\
-		else															\
-			echo "$(RED)$(NORM)$(RES)";									\
-	fi
-
-check: no
-
 git:	# A rule to make git add easier
 	@$(MAKE) printname
 	@echo Adding files to git repository
@@ -129,4 +115,4 @@ git:	# A rule to make git add easier
 	git add $(SRCS) $(INCS) Makefile
 	@printf "$(RES)"
 
-.PHONY: all clean re fclean git no check
+.PHONY: all clean re fclean git
